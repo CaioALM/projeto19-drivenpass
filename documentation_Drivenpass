@@ -1,0 +1,110 @@
+Documentation
+
+============== Nas rotas de user =================:
+
+1  .post(/register) 
+Para criar um usuário o usuário deve mandar um body no seguinte formato:
+{
+  "email": "teste@email.com",
+  "password": "1234567891"
+}
+
+
+2  .post(/login) 
+Para efetuar o login o usuário deve mandar um body no seguinte formato:
+{
+  "email": "teste@email.com",
+  "password": "1234567891"
+}
+O usuário receberá um token que servirá para autenticação.
+
+
+============== Nas rotas de cedentials =================:
+
+1  .post(/credential) 
+Para criar uma credential o usuário deve mandar um header Authorization com o token gerado na hora do login, bem como um body com os seguintes campos:
+
+{
+  "username": "Fulano",
+  "password": "123456789",
+  "url": "https://www.google.com/",
+  "title": "google"
+}
+por exemplo.
+
+2 .get(/credentials) 
+Para acessar todas as credentials de um usuário ele deve mandar um header Authorization com o token gerado na hora do login.
+
+3  .get(/credentials/:id) 
+Para acessar uma credentials de um usuário ele deve mandar um header Authorization com o token gerado na hora do login e o id da credential que ele quer via params
+
+4 .delete(/credentials/delete/:id) 
+Para deletar uma credencial você deve mandar um header Authorization com o token gerado na hora do login e o id da credential que vc quer deleter deve ser passado por params.
+
+============== Nas rotas de notes =================:
+
+1  .post(/notes) 
+Para criar uma note o usuário deve mandar um header Authorization com o token gerado na hora do login, bem como um body com os seguintes campos:
+
+ {
+    "title": "Texto de no máximo 500 caracteres",
+    "note": "Texto de no máximo 1000 caracteres"
+ }
+por exemplo.
+
+2 .get(/notes) 
+Para acessar todas as notes de um usuário ele deve mandar um header Authorization com o token gerado na hora do login.
+
+3  .get(/note/:id) 
+Para acessar uma notes de um usuário ele deve mandar um header Authorization com o token gerado na hora do login e o id da note que ele quer via params.
+
+4 .delete(/note/delete/:id) 
+Para deletar uma note, você deve mandar um header Authorization com o token gerado na hora do login e o id da note que vc quer deleter deve ser passado por params.
+
+
+============== Nas rotas de cards =================:
+
+1  .post(/cards) 
+Para criar uma card o usuário deve mandar um header Authorization com o token gerado na hora do login, bem como um body com os seguintes campos:
+{
+  "number": "1234567891234567",
+  "title": "cartao",
+  "name": "teste",
+  "securityCode": "123" ,
+  "expirationDate": "12/2025",
+  "password": "senha_secreta",
+  "isVirtual": false,
+  "cardType": "credit"
+}
+por exemplo.
+
+2 .get(/cards) 
+Para acessar todas os cards de um usuário ele deve mandar um header Authorization com o token gerado na hora do login.
+
+3  .get(/cards/:id) 
+Para acessar um card de um usuário ele deve mandar um header Authorization com o token gerado na hora do login e o id do card que ele quer via params.
+
+4 .delete(/note/delete/:id) 
+Para deletar um card, você deve mandar um header Authorization com o token gerado na hora do login e o id do cards que vc quer deleter deve ser passado por params.
+
+
+============== Nas rotas de wifis =================:
+
+1  .post(/wifis) 
+Para criar um wifi o usuário deve mandar um header Authorization com o token gerado na hora do login, bem como um body com os seguintes campos:
+{
+  "networkName": "wifi_teste",
+  "password": "123456789",
+  "title": "wifi"
+}
+por exemplo.
+
+2 .get(/wifis) 
+Para acessar todos os wifis de um usuário ele deve mandar um header Authorization com o token gerado na hora do login.
+
+3  .get(/wifis/:id) 
+Para acessar um wifi de um usuário ele deve mandar um header Authorization com o token gerado na hora do login e o id do wifi que ele quer via params.
+
+4 .delete(/wifis/delete/:id) 
+Para deletar um wifi, você deve mandar um header Authorization com o token gerado na hora do login e o id do wifi que vc quer deleter deve ser passado por params.
+
