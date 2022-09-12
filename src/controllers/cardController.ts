@@ -8,7 +8,7 @@ export async function registerCard(req:Request, res:Response) {
     res.sendStatus(201)
 }
 
-export async function getAllCards(req:Request, res:Response) {
+export async function getCards(req:Request, res:Response) {
     const { userId } = res.locals
     const cards = await cardServices.getCards(Number(userId))
     res.status(200).send(cards)
