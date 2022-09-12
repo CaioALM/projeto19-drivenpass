@@ -1,6 +1,5 @@
 import bcrypt from "bcrypt";
 import * as userRepository from '../repositories/userRepository.js';
-import { Users } from '@prisma/client'
 import jwt from 'jsonwebtoken'
 
 export async function signUp(email: string, password: string) {
@@ -26,8 +25,9 @@ export async function signIn(email: string, password: string) {
     if (!isValid) {
         throw { code: "Unauthorized", message: "Incorrect email or password"};
     }
-
-    const token = jwt.sign({ userId: user.id }, process.env.JWT_TOKEN!);
-
+    const { id } = user;
+    const token = jwt.sign(String(id) , process.env.JWT_TOKEN);
+   
+    
     return token;
 }
